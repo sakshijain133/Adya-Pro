@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html>
+<title>
+  ADYAPRO
+</title>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+
+	h5{
+		color:black;
+	}
+	h4{
+		color:white;
+	}
+	h3{
+		color:whitesmoke;
+	}
+	p1{
+		color:black;
+	}
+
+
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&family=Open+Sans:wght@300;400;700&display=swap');
+
+/*---------------------------------------- COMMON STYLES -----------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height:  1.6;
+}
+
+:root {
+  --grey-light-1: #d6dbe0;
+  --grey-light-2: #f1f3f4;
+  --grey-light-3: #bbc3cc;
+
+  --grey-dark-1: #778899;
+  --grey-dark-2: #535f6b;
+  --grey-dark-3: #181c20;
+
+  --color-primary: #4486f6; 
+  --color-primary-dark: #6E33FF;
+  --color-red: #ec5252;
+}
+
+/*------------------- NAVBAR --------------------*/
+.navbar {
+  font-size: 1.4rem;
+  height: 7.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid var(--grey-light-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--grey-dark-2);
+  box-shadow: 0 -1rem 3rem rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+}
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: var(--grey-light-2);
+  border: none;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: all 0.3s;
+  margin-right: -3.25rem;
+}
+
+.search__input:focus {
+  outline: none;
+}
+
+.search__input::-webkit-input-placeholder {
+  color: var(--grey-light-3);
+}
+
+.search__input:focus ~ .search__button {
+  background-color: transparent;
+}
+
+.search__button {
+  border: none;
+  background-color: transparent;
+}
+
+.search__button i {
+  color: var(--grey-dark-1);
+  font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 75em) /* 1200px */ {
+  html {
+    font-size: 50%;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    height: 12rem;
+    align-content: space-around;
+  }
+
+  .search {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--grey-light-2);
+  }
+}
+
+@media only screen and (min-width: 56.25em) /* 900px */ {
+  .logo {
+    height: 6rem;
+    width: 6rem;
+    margin-left: 2rem;
+  }
+
+  .dropdownmenu {
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+
+  .dropdownmenu:hover {
+    background-color: var(--grey-light-2);
+  }
+
+  .dropdown-title {
+    text-decoration: none;
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+    color: var(--grey-dark-2);
+  }
+
+  .dropdown-title i:first-child {
+    margin-right: 0.5rem;
+  }
+
+  .dropdown-title i:last-child {
+    margin-left: 3.5rem;
+  }
+
+  .user-nav {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+
+  .user-nav > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+  }
+
+  .separator {
+    display: block;
+    width: 0.2rem;
+    height: 4.5rem;
+    background: var(--grey-light-2);
+    padding: 0;
+    margin: 0 -0.2rem;
+  }
+
+  .user-nav__square-box:hover {
+    background-color: var(--grey-light-2);
+  }
+
+  .user-nav__item {
+    color: var(--grey-dark-2);
+    text-decoration: none;
+  }
+
+  .user-nav__icon-box {
+    position: relative;
+    transition: all 0.5s;
+  }
+
+  .user-nav__icon-box i {
+    font-size: 2.2rem;
+    z-index: 15;
+  }
+
+  .icon-red {
+    color: var(--color-red);
+  }
+
+  .user-nav__icon-box:hover::before {
+    content: "";
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--grey-light-2);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .user-nav__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 100%;
+    background-color: var(--color-red);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+  }
+
+  .user-nav__user-photo {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+
+  .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    width: 30rem;
+    top: 7rem;
+    left: 23rem;
+    position: absolute;
+    transition: all 0.5s;
+  }
+
+  .dropdownmenu:hover ~ .dropdown,
+  .dropdown:hover {
+    width: 30rem;
+    background: #fff;
+    position: absolute;
+    top: 7rem;
+    left: 23rem;
+    padding: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown__list {
+    list-style: none;
+  }
+
+  .dropdown__list::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: 12.7rem;
+    border: 1rem solid;
+    border-color: transparent transparent #fff transparent;
+    z-index: 10000;
+  }
+
+  .dropdown__list-item {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+
+  .dropdown__list-item:hover {
+    background-color: var(--grey-light-2);
+  }
+
+  .dropdown__list-link {
+    text-decoration: none;
+    position: relative;
+  }
+
+  .dropdown__list-link i:first-child {
+    margin-right: 0.5rem;
+  }
+
+  .dropdown__list-link i:last-child {
+    position: absolute;
+    left: 25rem;
+    top: 0.5rem;
+  }
+
+  .toggle-nav {
+    display: none;
+  }
+
+  .cart-nav {
+    display: none;
+  }
+}
+
+.toggle__checkbox {
+  display: none;
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 56.25em) /* 900px */ {
+  .navbar {
+    flex-wrap: wrap;
+    height: 12rem;
+    align-content: space-around;
+  }
+
+  .search {
+    order: 3;
+    flex: 0 0 100%;
+    background-color: var(--grey-light-2);
+  }
+
+  .dropdownmenu {
+    display: none;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .user-nav {
+    display: none;
+  }
+
+  .logo {
+    height: 6rem;
+    width: 6rem;
+    order: 1;
+  }
+
+  .cart-nav {
+    order: 2;
+    margin-right: 3rem;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+  }
+
+  .cart-nav > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+  }
+
+  .search {
+    background-color: var(--grey-light-2);
+  }
+
+  .toggle {
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: stretch;
+    height: 3rem;
+    width: 3.5rem;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 400;
+    cursor: pointer;
+  }
+
+  .toggle > * {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  .toggle__background {
+    height: 2rem;
+    width: 2rem;
+    position: fixed;
+    top: 2.5rem;
+    left: 3.5rem;
+    background-color: #fff;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  .toggle-nav {
+    position: absolute;
+    top: 12rem;
+    left: 0;
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s;
+  }
+
+  .toggle__checkbox:checked ~ .toggle__background {
+    transform: scaleX(80) scaleY(40);
+  }
+
+  .toggle__checkbox:checked ~ .toggle-nav {
+    opacity: 1;
+    width: 100%;
+  }
+
+  .toggle:focus {
+    outline: none;
+  }
+
+  .toggle__button {
+    position: absolute;
+    top: 0.7rem;
+    left: 3rem;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .toggle-nav__link {
+    color: var(--grey-dark-2);
+    text-decoration: none;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    padding: 2.8rem 0;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .toggle-nav__link:hover {
+    background-color: var(--grey-light-2);
+    width: 100%;
+  }
+
+  .toggle__icon {
+    position: relative;
+    margin-top: 2.5rem;
+    z-index: 30;
+  }
+
+  .toggle__icon,
+  .toggle__icon:before,
+  .toggle__icon:after {
+    width: 3rem;
+    height: 2px;
+    background-color: var(--grey-dark-2);
+    display: inline-block;
+  }
+
+  .toggle__icon:before,
+  .toggle__icon:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.3s;
+  }
+
+  .toggle__icon:before {
+    top: -0.8rem;
+  }
+
+  .toggle__icon:after {
+    top: 0.8rem;
+  }
+
+  .toggle__checkbox:checked ~ .toggle__button .toggle__icon {
+    background-color: transparent;
+  }
+  .toggle__checkbox:checked ~ .toggle__button .toggle__icon:before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  .toggle__checkbox:checked ~ .toggle__button .toggle__icon:after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+
+  .cart-nav__square-box:hover {
+    background-color: var(--grey-light-2);
+  }
+
+  .cart-nav__item {
+    color: var(--grey-dark-2);
+    text-decoration: none;
+  }
+
+  .cart-nav__icon-box {
+    position: relative;
+    transition: all 0.5s;
+  }
+
+  .cart-nav__icon-box i {
+    font-size: 2.2rem;
+    z-index: 15;
+  }
+
+  .cart-nav__icon-box:hover::before {
+    content: "";
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--grey-light-2);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .cart-nav__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 100%;
+    background-color: var(--color-red);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+  }
+
+  .toggle-nav__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toggle-nav__item {
+    padding: 2rem;
+    width: 30rem;
+  }
+
+  .toggle-nav__item:first-child a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--grey-light-1);
+    font-family: "Open Sans Bold", sans-serif;
+  }
+
+  .toggle-nav__item:hover:not(:first-child) {
+    background-color: var(--grey-light-2);
+    overflow: hidden;
+  }
+
+  .horizontal-line {
+    width: 30rem;
+    height: 0.3rem;
+    background: var(--grey-light-2);
+    margin-left: 0 auto;
+  }
+
+  .toggle-nav__link {
+    text-decoration: none;
+    position: relative;
+  }
+
+  .toggle-nav__link i:first-child {
+    margin-right: 0.5rem;
+  }
+
+  .toggle-nav__link i:last-child {
+    position: absolute;
+    left: 25rem;
+    top: 3rem;
+  }
+}
+
+/*------------------- HEADER --------------------*/
+.header-box {
+  display: grid;
+  grid-template-rows: 100vh;
+  max-width: 100%;
+  width: 100%;
+}
+
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://github.com/Ceci007/image-repository/blob/master/img/header-bg.jpg?raw=true");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1.5rem;
+  justify-content: center;
+  position: relative;
+  margin-top: 7.5rem;
+}
+
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.btn-header {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  padding: 1.5rem 4rem;
+  border-radius: 6rem;
+  word-spacing: 0.7rem;
+}
+
+.heading-1 {
+  font-size: 4.5rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+}
+
+@media only screen and (max-width: 56.25em) /* 900px */ {
+  .header-box {
+    display: grid;
+    grid-template-rows: 80vh;
+  }
+
+  .heading-1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .heading-3 {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 25em) /* 400px */ {
+  .header-box {
+    display: grid;
+    grid-template-rows: 60vh;
+  }
+
+  .heading-1 {
+    font-size: 2rem;
+  }
+}
+
+.margin-bottom-medium {
+  margin-bottom: 6rem;
+}
+
+.heading-3 {
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-top: 12rem;
+}
+
+.btn {
+  font-size: 1.8rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: #fff;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 1rem auto;
+  letter-spacing: 1.5px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background-image: linear-gradient(
+    to left top,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+}
+
+/*------------------- COURSES --------------------*/
+.courses {
+  padding: 3rem 0;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--grey-light-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 6rem;
+}
+
+.course-card {
+  background-color: #fff;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.3);
+  width: 40rem;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  color: var(--grey-dark-3);
+  transition: all 0.5s;
+  margin: 0 3rem;
+  margin-bottom: 4rem;
+}
+
+.course-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.2);
+}
+
+.course-img-box {
+  width: 40rem;
+  height: 30rem;
+}
+
+.course-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-card__body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-heading {
+  font-size: 2.2rem;
+}
+
+.name,
+.rating {
+  font-size: 1.6rem;
+}
+
+.rating i:last-child {
+  margin-right: 1rem;
+}
+
+.rating i {
+  color: #f4d53f;
+}
+
+.price {
+  align-self: flex-end;
+  font-size: 2rem;
+  color: var(--grey-dark-1);
+}
+
+.btn-card {
+  padding: 1.5rem 3rem;
+  word-spacing: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
+  background: #000;
+  font-weight: bold;
+}
+
+.btn-card:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/*------------------- Reviews --------------------*/
+.reviews-box {
+  padding: 3rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  padding: 2rem;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+  width: 30rem;
+  margin: 2rem 3rem;
+  height: 30rem;
+  border-radius: 0.5rem;
+  color: var(--grey-dark-3);
+  font-size: 1.6rem;
+}
+
+.user-review {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.user-img-box {
+  width: 8rem;
+  height: 8rem;
+  margin-right: 1rem;
+}
+
+.user-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.review-name {
+  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+.user-review i {
+  position: absolute;
+  right: 0;
+  font-size: 4rem;
+  color: var(--color-red);
+}
+
+.reviws-logos-box {
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1.5rem;
+  justify-content: center;
+}
+
+.reviews__seenon-text {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.5rem;
+  align-items: center;
+  font-size: 1.6rem;
+  color: var(--grey-light-1);
+}
+
+.reviews__seenon-text:before,
+.reviews__seenon-text:after {
+  content: "";
+  height: 0.2rem;
+  display: block;
+  background-color: currentColor;
+}
+
+.reviews__seenon-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.reviews__seenon-logos img {
+  max-height: 4rem;
+  max-width: 100%;
+  filter: brightness(70%);
+}
+
+/*------------------- FOOTER --------------------*/
+.footer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://github.com/Ceci007/image-repository/blob/master/img/footer.png?raw=true");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  padding: 3rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.footer__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__input {
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: none;
+  width: 90vw;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: -0.5rem;
+  transition: all 0.3s;
+}
+
+.footer__input:focus {
+  outline: none;
+}
+
+.footer__input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.6rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+.footer-line {
+  border: none;
+  margin: 2rem 0;
+  height: 0.2rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-inline {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  border: 0.2rem solid rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  padding: 1rem 3rem;
+  border-radius: 0.3rem;
+}
+
+.btn-inline:hover {
+  color: rgba(255, 255, 255, 1);
+  border: 0.2rem solid rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  border-radius: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(#000, 0.6);
+}
+
+
+
+	
+	
+</style>
+</head>
+	<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+	<div class="container">
+	  <a class="navbar-brand" href="#">KS077</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+  
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+  <li class="nav-item active">
+			<a class="nav-link" href="#">Home</a>
+		  </li>
+  <li class="nav-item">
+			<a class="nav-link" href="#">About</a>
+		  </li>
+  <li class="nav-item">
+			<a class="nav-link" href="#">Portfolio</a>
+		  </li>
+  <li class="nav-item">
+			<a class="nav-link" href="#">Services</a>
+		  </li>
+  <li class="nav-item">
+			<a class="nav-link" href="#">Contact</a>
+		  </li>
+  </ul>
+  </div>
+  </div>
+  </nav>
+  
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+	  <div class="carousel-item active">
+		<img class="d-block w-100" src="P0.jpg" alt="First slide">
+		<div class="carousel-caption d-none d-md-block">
+		  <h5>
+  KS077 ONLINE LEARNING</h5>
+  <p1>
+	“The beautiful thing about learning is nobody can take it away from you.”.</p1>
+  </div>
+  </div>
+  <div class="carousel-item">
+		<img class="d-block w-100" src="P5.jpg" alt="Second slide">
+		<div class="carousel-caption d-none d-md-block">
+		  <h4>
+  KS077 ONLINE LEARNING</h4>
+  <p>
+  Sometimes you win Sometimes you learn.</p>
+  </div>
+  </div>
+  <div class="carousel-item">
+		<img class="d-block w-100" src="P2.jpg" alt="Third slide">
+		<div class="carousel-caption d-none d-md-block">
+		  <h3>
+  KS077 ONLINE LEARNING</h3>
+  <p>
+	Live as if you were to die tomorrow.</p>
+  </div>
+  </div>
+  </div>
+
+ 
+
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+  </div>
+  
+ 
+
+	<!-- HEADER -->
+	<section class="header-box">
+	  <header class="header">
+		  <div class="header-content">
+			  <h3 class="heading-3">Learn on your schedule</h3>
+			  <h1 class="heading-1 margin-bottom-medium">More than 10,000 courses</h1>
+			  <button class="btn btn-header">
+				  Learning Paths
+			  </button>
+		  </div>
+	  </header>
+  </section>
+
+  <!-- COURSES -->
+  <section class="courses">
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="js1.jpg" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">JavaScript</h3>
+		<p class="name">Sachin Singh</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  4.8
+		</div>
+		<p class="price">   &#8377;   15.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="nodejs.png" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">Node.Js</h3>
+		<p class="name">Sachin Gupta</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  4.9
+		</div>
+		<p class="price">  &#8377;  19.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="CSS.png" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">CSS</h3>
+		<p class="name">Suraj Singh</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  <i class="far fa-star"></i>
+		  3.7
+		</div>
+		<p class="price">  &#8377;  9.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="RR.jpeg" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">React</h3>
+		<p class="name">Shivam Tomar</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  4.6
+		</div>
+		<p class="price">    &#8377;  29.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="sss.png" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">Sass</h3>
+		<p class="name">Subham Gupta</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="far fa-star"></i>
+		  <i class="far fa-star"></i>
+		  3.0
+		</div>
+		<p class="price"> &#8377;   12.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="vj.png" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">Vue.Js</h3>
+		<p class="name">Sahil Gupta</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  4.8
+		</div>
+		<p class="price">    &#8377;  28.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="rn.jpg" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">React Native</h3>
+		<p class="name">Ronak Jain</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  4.8
+		</div>
+		<p class="price">  &#8377;   35.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+
+	<div class="course-card">
+	  <div class="course-img-box">
+		<img src="AJAJA.png" alt="course-1" />
+	  </div>
+	  <div class="course-card__body">
+		<h3 class="card-heading">Angular</h3>
+		<p class="name">Sherya Sharma</p>
+		<div class="rating">
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star"></i>
+		  <i class="fas fa-star-half-alt"></i>
+		  4.5
+		</div>
+		<p class="price">    &#8377;      18.99</p>
+		<button class="btn btn-card">Add to cart</button>
+	  </div>
+	</div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+	<div class="reviews-box">
+	  <div class="review-card">
+		<div class="user-review">
+		  <div class="user-img-box">
+			<img src="sakshi.jpeg" />
+		  </div>
+		  <p class="review-name">Sakshi Agrawal</p>
+		  <i class="fas fa-heartbeat"></i>
+		</div>
+		<p class="review-paragraph">
+		  Cloud is a life saver. I don't have the time or money for a college education. 
+		  My goal is to become a freelance web developer, and thanks to Cloud, I'm really close.
+		</p>
+	  </div>
+
+	  <div class="review-card">
+		<div class="user-review">
+		  <div class="user-img-box">
+			<img src="SAKSHI1.jpeg" />
+		  </div>
+		  <p class="review-name">Sakshi Jain</p>
+		  <i class="fas fa-heartbeat"></i>
+		</div>
+		<p class="review-paragraph">
+		  I believe in lifelong learning and Cloud is a great place to learn from experts. 
+		  I've learned a lot and recommend it to all my friends.
+		</p>
+	  </div>
+
+	  <div class="review-card">
+		<div class="user-review">
+		  <div class="user-img-box">
+			<img src="SAKSHI2.jpeg" />
+		  </div>
+		  <p class="review-name">Sakshi Parashar</p>
+		  <i class="fas fa-heartbeat"></i>
+		</div>
+		<p class="review-paragraph">
+		  My children and I LOVE Cloud! The courses are fantastic and the instructors 
+		  are so fun and knowledgeable. I only wish we found it sooner.
+		</p>
+	  </div>
+	</div>
+
+	<div class="reviws-logos-box">
+	  <div class="reviews__seenon-text">Trusted by</div>
+	  <div class="reviews__seenon-logos">
+		  <img src="https://github.com/Ceci007/image-repository/blob/master/img/booking.png?raw=true" />
+		  <img src="https://github.com/Ceci007/image-repository/blob/master/img/adidas.svg.png?raw=true" />
+		  <img src="https://github.com/Ceci007/image-repository/blob/master/img/pinterest.png?raw=true" />
+	  </div>
+	</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+		<div class="margin-bottom-medium heading-4 heading-4--light">Contact us</div>
+		<form class="footer__form">
+			<input type="text" class="footer__input" placeholder="Enter your name." required="required">
+			<input type="email" class="footer__input" placeholder="Enter your email." required="required">
+			<textarea class="footer__input" placeholder="Add your message." rows="4" required="required"></textarea>
+			<input type="submit" class="btn-inline" value="Send Message">
+		</form>
+		<hr class="footer-line">
+		<p class="footer__text margin-top-medium">
+			Thanks for leaving a good rating to our courses!
+			&copy; 2021 by sakshi jain. All rights reserved.
+		</p>
+  </footer>
+</div>
+
+
+
+  </body>
+  </html>
